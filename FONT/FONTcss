@@ -12,3 +12,9 @@ font-weight: 100;
 font-style: normal;
 font-stretch: normal;
     }
+
+    h1 {
+      font-size: 40px;
+      font-family: 'Poppins', Arial, sans-serif;
+      text-align: center;
+    }
