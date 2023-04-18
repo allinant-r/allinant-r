@@ -6,7 +6,17 @@
     <title>Romain Allinant</title>
     <link rel="stylesheet" href="Style/style.css"> <!-- Lien vers votre fichier CSS externe -->
     <style>
-        /* Code CSS mis à jour pour afficher l'infobulle sur l'image lien */
+
+.image-link {
+        width: 300px;
+        height: 300px; /* ajustez la valeur de hauteur selon vos besoins */
+        object-fit: cover;
+    }
+.image-links-container {
+    display: flex; /* Utiliser flexbox pour aligner les images côte à côte */
+    justify-content: center; /* Centrer les images horizontalement dans le conteneur */
+        }
+
 .tooltip {
     position: relative;
     display: inline-block;
@@ -23,8 +33,8 @@
     padding: 5px 0;
     position: absolute;
     z-index: 1;
-    top: 30%; /* Modifier la position pour qu'elle soit au-dessus de l'image */
-    left: 20%;
+    top: 50%; /* Modifier la position pour qu'elle soit au-dessus de l'image */
+    left: 50%;
     margin-left: -60px;
     opacity: 0;
     transition: opacity 0.3s;
@@ -44,7 +54,7 @@
 
     <h5> Artiste Sonore - Sound Designer</h5><br>
 
-    <p>
+    <p align="right">
         <a href="https://on.soundcloud.com/CkpJy" target="_blank" rel="noopener noreferrer">
             <img src="https://github.com/allinant-r/romain/blob/main/IMAGES/soundcloud.png?raw=true" alt="Soundcloud" width="50px" height="50px">
         </a> &emsp;
@@ -61,11 +71,18 @@
     </p>
     <br>
 
-    <div>
+    <div class="image-links-container" style="display: flex;">
         <a href="bio.html" class="tooltip" title="Biographie">
-        <img class="image-link" src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Romain_allinant.jpg?raw=true" alt="Romain Allinant" width="40%" height="40%">
+        <img class="image-link" src="https://github.com/allinant-r/romain/blob/main/IMAGES/Romain_allinant.jpg?raw=true" alt="Romain Allinant" style="margin-right: 40px;">
         <span class="tooltiptext">Biographie</span>
         </a>
+        <a href="field-recording.html" class="tooltip" title="Field-Recording">
+        <img class="image-link" src="https://github.com/allinant-r/romain/blob/main/IMAGES/Electronice.jpg?raw=true" alt="Romain Allinant" style="margin-right: 40px;"> 
+        <span class="tooltiptext">Field-Recording</span>
+        </a>
+        <a href="Soundmap.html" class="tooltip" title="Sound-Map">
+        <img class="image-link" src="https://github.com/allinant-r/romain/blob/main/IMAGES/Soundmap.jpg?raw=true" alt="Romain Allinant";"> 
+        <span class="tooltiptext">Sound-Map</span>
 </div>
     <br>
     <div>
