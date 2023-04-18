@@ -6,8 +6,8 @@
     <title>Romain Allinant</title>
     <link rel="stylesheet" href="Style/style.css"> <!-- Lien vers votre fichier CSS externe -->
     <style>
-        /* Code CSS pour l'infobulle */
-        .tooltip {
+        /* Code CSS mis à jour pour afficher l'infobulle sur l'image lien */
+.tooltip {
     position: relative;
     display: inline-block;
     border-bottom: 1px dotted black;
@@ -23,7 +23,7 @@
     padding: 5px 0;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
+    top: -100%; /* Modifier la position pour qu'elle soit au-dessus de l'image */
     left: 50%;
     margin-left: -60px;
     opacity: 0;
@@ -34,6 +34,7 @@
     visibility: visible;
     opacity: 1;
 }
+
     </style>
 </head>
 
