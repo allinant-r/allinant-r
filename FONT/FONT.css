@@ -7,13 +7,11 @@
   font-stretch: normal;
 }
 
-h1 {
-  font-size: 40px;
-  font-family: 'Floreal', Arial, sans-serif;
-  text-align: center;
+p {
+  font-family: 'floreal';
 }
 
-body {
+h1 {
   font-size: 40px;
   font-family: 'Floreal', Arial, sans-serif;
   text-align: center;
