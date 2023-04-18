@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Romain Allinant</title>
+    <link rel="stylesheet" href="Style/style.css"> <!-- Lien vers votre fichier CSS externe -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+
+    h1{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+    }
+
+    p{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+    }
+
+.image-link {
+    border: 5px solid rgba(89, 138, 178, 0.6); 
+        width: 300px;
+        height: 300px; /* ajustez la valeur de hauteur selon vos besoins */
+        object-fit: cover;
+    }
+.image-links-container {
+    display: flex; /* Utiliser flexbox pour aligner les images côte à côte */
+    justify-content: center; /* Centrer les images horizontalement dans le conteneur */
+        }
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #c8d2da;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 40%; /* Modifier la position pour qu'elle soit au-dessus de l'image */
+    left: 50%;
+    margin-left: -50px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-family: 'poppins', sans-serif;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+    </style>
+</head>
+
+<body style="background-color:#c8d2da;">
+  <div style="margin-right: 325px"> <h1 align="right">La Musique Générative</h1>
+    
+ </html>
