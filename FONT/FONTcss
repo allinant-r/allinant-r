@@ -1,13 +1,7 @@
-body {
-    font-family: 'Poppins', Arial, sans-serif;
-}
-
 @font-face {
-    font-family: 'Floreal';
+    font-family: 'Floreal', sans-serif;
     src: url(https://github.com/allinant-r/romain/blob/main/FONT/adelphe/webfonts/Adelphe-FlorealBold.woff) format('woff'),
-        url(https://github.com/allinant-r/romain/blob/main/FONT/adelphe/webfonts/Adelphe-FlorealBold.woff2) format('woff2'),
-        url(https://github.com/allinant-r/romain/blob/main/FONT/adelphe/webfonts/Adelphe-FlorealRegular.woff) format('woff'),
-        url(https://github.com/allinant-r/romain/blob/main/FONT/adelphe/webfonts/Adelphe-FlorealRegular.woff2) format('woff2');
+        url(https://github.com/allinant-r/romain/blob/main/FONT/adelphe/webfonts/Adelphe-FlorealBold.woff2) format('woff2');
 font-weight: 100;
 font-style: normal;
 font-stretch: normal;
