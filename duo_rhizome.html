@@ -6,6 +6,31 @@
     <link rel="stylesheet" href="Style/style.css"> <!-- Lien vers votre fichier CSS externe -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+        
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+  $('.slider').slick({
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    dots: true,
+    infinite: false
+  });
+
+  $('.slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+    if(nextSlide === 0) {
+      $('.slider').slick('slickGoTo', 0);
+    }
+  });
+});
+    </script>
+
     <style>
 
     h1{
@@ -24,13 +49,17 @@
         }
 
     .container {
-        width: 60%;
+        width: 50%;
         background-color: #ffffff;
         border: 5px solid rgba(89, 138, 178, 0.6);
         margin: auto;
         padding: 20px; /* Ajouter de l'espace autour du texte */
         text-align: justify;
-
+    }
+    .slider{
+        width: 100%;
+        margin: 0 auto;
+        }
     </style>
 </head>
 
@@ -57,14 +86,23 @@
 
     <div class="container" style="text-align: justify"> 
         <div style="display: flex; justify-content: center;">
+            <div class="slider" style="width 100%; justify-content: center;">
+                <div><img width="100%"; height="100%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Rhizome1.jpg?raw=true" alt="Duo Rhizome"></div>
+                <div><img width="100%"; height="100%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Rhizome3.jpg?raw=true" alt="Duo Rhizome"></div>
+                <div><img width="100%"; height="100%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Rhizome4.jpg?raw=true" alt="Duo Rhizome"></div>
+                <div><img width="100%"; height="100%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Rhizome5.jpg?raw=true" alt="Duo Rhizome"></div>
+                <div><img width="100%"; height="100%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Rhizome6.jpg?raw=true" alt="Duo Rhizome"></div>
+                <div><img width="100%"; height="100%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Rhizome7.jpg?raw=true" alt="Duo Rhizome"></div>
+            </div>
+            <br>
             <img width="80%"; height="80%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Rhizome1.jpg?raw=true" alt="Duo Rhizome">
         </div align="center">
-        <br>
-        <div style="text-align: center;">
-            <a href="https://www.instagram.com/duo_rhizome/" target="_blank" rel="noopener noreferrer">
-            <img src="https://github.com/allinant-r/romain/blob/main/IMAGES/insta.png?raw=true" alt="Duo Rhizome" width="50px" height="50px">
-            </a>
-        </div>
+            <br>
+            <div style="text-align: center;">
+                <a href="https://www.instagram.com/duo_rhizome/" target="_blank" rel="noopener noreferrer">
+                <img src="https://github.com/allinant-r/romain/blob/main/IMAGES/insta.png?raw=true" alt="Duo Rhizome" width="50px" height="50px">
+                </a>
+            </div>
 
         <p>
             Rhizome est un projet artistique collaboratif créé par Marta Shilova et Romain Allinant.<br>
@@ -72,19 +110,13 @@
             Un Rhizome décrit une structure évoluant en permanence dans toutes les directions, dénuée de niveaux et qui s'oppose à la hiérarchie en pyramide. Cette philosophie correspond parfaitement à notre projet artistique.
             Nos performances sont des expériences lives de manipulations audio/vidéo en temps réel. <br>
             Romain produit des signaux sonores via des synthétiseurs modulaires, mais également via son ordinateur et Marta récupère ces flux audios pour créer, animer et moduler des images en symbiose avec le son grâce au logiciel de programmation visuelle TouchDesigner. 
-            Le but de Rhizome est d’explorer les possibilités offertes par la combinaison de la technologie et de l'art. Notre projet est structuré de manière à offrir une expérience unique à chaque représentation,  plusieurs esthétiques sont amenées, qu'elles soient musicales ou sonores, dansantes ou ambiantes.<br>
+            Le but de Rhizome est d’explorer les possibilités offertes par la combinaison de la technologie et de l'art. Notre projet est structuré de manière à offrir une expérience unique à chaque représentation,  plusieurs esthétiques sont amenées, qu'elles soient musicales, sonores, dansantes ou ambiantes.<br>
             <br> 
             Avec Rhizome  nous souhaitons incarner la rencontre de différentes disciplines artistiques afin de créer des expériences sensorielles et multimédias originales.
             <br>
+            <h4 style="text-align: center;"><a href="https://youtu.be/PblsGUrafH4" target="_blank">Teaser Video</a></h4>
         </p>
-        <div style="display: flex; justify-content: center;">
-            <img width="80%"; height="80%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Rhizome3.jpg?raw=true" alt="Duo Rhizome">
         </div>
-        <br>
-        <div style="display: flex; justify-content: center;">
-            <img width="60%"; height="80%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Rhizome2.jpg?raw=true" alt="Duo Rhizome">
-        </div>
-
+    </div>
 </body>
-</div>
 </html>
