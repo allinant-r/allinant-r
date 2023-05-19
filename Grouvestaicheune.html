@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Romain Allinant</title>
+    <link rel="stylesheet" href="Style/style.css"> <!-- Lien vers votre fichier CSS externe -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Frijole&display=swap" rel="stylesheet">
+    
+    <style>
+
+    h1{
+        font-family: 'Frijole', sans-serif;
+        font-weight: 900;
+    }
+    h2{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+    }
+
+    p{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+    }
+    p1{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+        font-style: italic;
+    }
+
+    .image-container {
+        display: flex;
+    }
+
+    .image-container a {
+        flex: 1;
+        text-align: center;
+        padding: 1px;
+    }
+
+    .image-container img {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+    }
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #c8d2da;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 40%; 
+    left: 50%;
+    margin-left: -50px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-family: 'poppins', sans-serif;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.container {
+            width: 1270px;
+            background-color: #ffffff;
+            border: 5px solid rgba(89, 138, 178, 0.6);
+            margin: auto;
+            padding: 20px; /* Ajouter de l'espace autour du texte */
+            text-align: justify;
+        }
+
+.container2 {
+            width: 1300px;
+            background-color: #000000;
+            border: 5px solid rgba(89, 138, 178, 0.6);
+            margin: auto;
+            padding: 5px; /* Ajouter de l'espace autour du texte */
+            text-align: justify;
+        }
+
+.fullscreen-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+.fullscreen-image img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+
+  .code-window {
+        background-color: #000;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        font-family: "Courier New", Courier, monospace;
+        overflow: auto;
+        position:relative;
+        height: 300px;
+    }
+
+    .code-window pre {
+        margin: 0;
+    }
+    .code-copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #fff;
+        color: #000;
+        padding: 5px 10px;
+        border-radius: 3px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body style="background-color:#c8d2da;">
+    <p align="right" style="display: flex; justify-content: flex-end;">
+        <a href="https://on.soundcloud.com/CkpJy" target="_blank" rel="noopener noreferrer" style="margin-right: 10px;">
+            <img src="https://github.com/allinant-r/romain/blob/main/IMAGES/soundcloud.png?raw=true" alt="Soundcloud" width="30px" height="30px">
+        </a> &emsp;
+        <a href="https://www.instagram.com/ani__lan/" target="_blank" rel="noopener noreferrer" style="margin-right: 10px;">
+            <img src="https://github.com/allinant-r/romain/blob/main/IMAGES/insta.png?raw=true" alt="Instagram" width="30px" height="30px">
+        </a> &emsp;
+        <a href="https://anilan.bandcamp.com/music/" target="_blank" rel="noopener noreferrer" style="margin-right: 10px;">
+            <img src="https://github.com/allinant-r/romain/blob/main/IMAGES/bandcamp.png?raw=true" alt="Bandcamp" width="30px" height="30px">
+        </a> &emsp;
+        <a href="https://www.youtube.com/channel/UCL_u2TzSzYWxqF5y4Eb3E-w" target="_blank" rel="noopener noreferrer" style="margin-right: 10px;">
+            <img src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/youtube.png?raw=true" alt="youtube" width="30px" height="30px">
+        </a> &emsp;
+        <a href="mailto:allinant.romain@gmail.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://github.com/allinant-r/romain/blob/main/IMAGES/contact.png?raw=true" alt="Mail" width="30px" height="30px">
+        </a>
+    </p>
+
+    <div class="container2" style="text-align: justify"> 
+        <div style="display: flex;">
+            <img width="20%"; height="20%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/grouve6.png?raw=true" alt="La Grouve Staïcheune">
+            <img width="20%"; height="20%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/grouve7.png?raw=true" alt="La Grouve Staïcheune">
+            <img width="20%"; height="20%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Grouve8.png?raw=true" alt="La Grouve Staïcheune">
+            <img width="20%"; height="20%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/grouve9.png?raw=true" alt="La Grouve Staïcheune">
+            <img width="20%"; height="20%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Grouve10.png?raw=true" alt="La Grouve Staïcheune">
+            <img width="20%"; height="20%"; margin: auto; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/grouve11.png?raw=true" alt="La Grouve Staïcheune">
+        </div>
+    </div>
+
+        <br>
+
+    <div class="container" style="text-align: justify">
+        <h1 align="center">La Grouve Staïcheune</h1> 
+        <p>
+            La Grouve staïcheune est une installation sonore ludique composée de différents éléments mis à disposition d'un public lors d'évènements culturels et/ou festifs. Les différents dispositifs permettent une manipulation intuitive du son, seul ou à plusieurs.
+            Le but de l’installation est de proposer à des publics de tout âge, avertis ou non, de s'amuser, de créer et même d'aprendre. Elle est à but ludique et festive mais peut être également une introduction à la mise en oeuvre technique des différents dispositifs.
+        </p>
+        <br>
+            <div>
+                <a href="javascript:void(0);" onclick="showFullscreenImage('https://github.com/allinant-r/allinant-r/blob/main/IMAGES/GROUVE_1.jpg?raw=true')" class="tooltip" title="La Grouve Staïcheune" style="text-decoration: none; border-bottom: none !important;">
+                    <img style="width: 20%; height: 20%; display: block; margin: 0 auto;" src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/GROUVE_1.jpg?raw=true" alt="La Grouve Staïcheune">
+                    <span class="tooltiptext">Cliquer pour agrandir</span>
+                </a>
+            </div>
+                <div id="fullscreenOverlay" class="fullscreen-image" style="display: none;"></div>
+                <script>
+                    function showFullscreenImage(imageUrl) {
+                      var overlay = document.getElementById('fullscreenOverlay');
+                      overlay.innerHTML = '<img src="' + imageUrl + '">';
+                      overlay.style.display = 'flex';
+                    }                 
+                    document.getElementById('fullscreenOverlay').addEventListener('click', function() {
+                      this.style.display = 'none';
+                    });
+                </script> 
+                <br>
+        <p> Les éléments de la Grouve Staïcheune sont des controlleurs MIDI pensés et conçus pour remplir une fonction particulière, ils controllent donc un ordinateur qui est le cerveau invisible de l'installation.
+            Tout les dispositifs ont été pensés et fabriqués dans une optique de diffusion open source. Ci dessous vous pouvez trouver les différents plans, codes et procédés techniques avec lesquels l'installation fonctionne.
+        </p>          
+    </div>
+         <br>
+         
+    <div class="container" style="text-align: justify"> <!-- LA GROUVE BOXE -->
+        <h1 align="center">La Grouve Boxe</h1>
+            <p>La Grouve Box est un sampler/boite à Rythmes 6 pistes avec un potard de contrôle par pistes et deux effets master. Elle dispose aussi de deux mixers trois voies.
+                Elle reprend le fonctionnement des synthetiseurs modulaires, on peut "patcher" le signal audio en lui faisant prendre la route que l'on souhaite.
+                Par rapport à un controlleur MIDI classique, le signal audio passe dans dans la Grouve Boxe, il y a donc deux circuits distincts : 1 analogique, qui transporte l'audio ; et un numérique, qui communique avec l'ordinateur via un Arduino afin d'envoyer les données MIDI souhaitées. 
+            </p>
+            <div class="image-container">
+                <a href="javascript:void(0);" onclick="showFullscreenImage('https://github.com/allinant-r/allinant-r/blob/main/IMAGES/GRouveBOxe1.jpg?raw=true')" title="La Grouve Boxe">
+                    <img src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/GRouveBOxe1.jpg?raw=true" alt="La Grouve Boxe">
+                </a>
+                <a href="javascript:void(0);" onclick="showFullscreenImage('https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Notice_V1.jpg?raw=true')" title="La Grouve Boxe">
+                    <img src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/Notice_V1.jpg?raw=true" alt="La Grouve Boxe">
+                </a>
+                <a href="javascript:void(0);" onclick="showFullscreenImage('https://github.com/allinant-r/allinant-r/blob/main/IMAGES/montagesampler3.png?raw=true')" title="La Grouve Boxe">
+                    <img src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/montagesampler3.png?raw=true" alt="La Grouve Boxe">
+                </a>
+                <a href="javascript:void(0);" onclick="showFullscreenImage('https://github.com/allinant-r/allinant-r/blob/main/IMAGES/grouvebox2.jpg?raw=true')" title="La Grouve Boxe">
+                    <img src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/grouvebox2.jpg?raw=true" alt="La Grouve Boxe">
+                </a>
+            </div>
+            <br>
+            <h2>Liste du materiel utilisé:</h2>
+                <p> 14 x potentiomètre linéaire 10k ohm <br>
+                    6 x boutton type arcade avec LED (5V)<br>
+                    20 x Connecteur jack femelle encastrable 6.3mm Mono<br>
+                    1 x carte Arduino Mega (ou Elegoo mega)<br>
+                    1 x embase femelle MIDI DIN <br>
+                    2 x bornier electrique (possibilité de les "faire" soi-même)<br>
+                </p>
+                <br>
+                <h2>Le code :</h2>
+                <p>Le code s'implémente via l'IDE Arduino disponible en téléchargement gratuit <a href="https://www.arduino.cc/en/software" target="_blank">ici</a> (Meme si vous utilisez une carte Elegoo).
+                    Quand on connecte l'arduino à l'ordinateur via USB, il faut bien faire attention de selectionner le bon port et le bon modèle de carte que l'on utilise au risque de ne pas pouvoir téléverser le code sur la carte.
+                    ( Outil/Port - Outil/type de carte )<br>
+                    <br>
+                    Le code ci dessous est celui que j'ai écris et implémenté dans la Grouve Boxe, il est commenté afin de mieux comprendre les fonctions de chaque lignes. Vous pouvez le copier/coller directement dans votre IDE arduino et le modifier selon vos branchements physiques sur la carte.
+                </p>
+                    <div class="code-window">
+                        <button class="code-copy-btn" onclick="copyCodeToClipboard()">Copier</button>
+                        <pre>
+                            <code>
+                                #include <MIDI.h>
+
+                                    MIDI_CREATE_DEFAULT_INSTANCE();
+                                    
+                                    //BOUTTON
+                                    const int button1 = 11;
+                                    const int button2 = 10;
+                                    const int button3 = 9;
+                                    const int button4 = 6;
+                                    const int button5 = 5;
+                                    const int button6 = 3;
+                                    
+                                    bool buttonState1 = LOW;
+                                    bool buttonPressed1 = HIGH;
+                                    bool buttonState2 = LOW;
+                                    bool buttonPressed2 = HIGH;
+                                    bool buttonState3 = LOW;
+                                    bool buttonPressed3 = HIGH;
+                                    bool buttonState4 = LOW;
+                                    bool buttonPressed4 = HIGH;
+                                    bool buttonState5 = LOW;
+                                    bool buttonPressed5 = HIGH;
+                                    bool buttonState6 = LOW;
+                                    bool buttonPressed6 = HIGH;
+                                    
+                                    
+                                    //LED
+                                    const int ledPin1 = 24; // la broche de la LED que vous voulez utiliser
+                                    const int ledPin2 = 30;
+                                    const int ledPin3 = 34;
+                                    const int ledPin4 = 38;
+                                    const int ledPin5 = 42;
+                                    const int ledPin6 = 46;
+                                    
+                                    bool ledState1 = LOW; // état initial de la LED
+                                    bool ledState2 = LOW;
+                                    bool ledState3 = LOW;
+                                    bool ledState4 = LOW;
+                                    bool ledState5 = LOW;
+                                    bool ledState6 = LOW;
+                                    
+                                    
+                                    //Potards de pitch Bend
+                                    const int potPin1 = A0;
+                                    const int potPin2 = A1;
+                                    const int potPin3 = A2;
+                                    const int potPin4 = A3;
+                                    const int potPin5 = A4;
+                                    const int potPin6 = A5;
+                                    
+                                    int potValue1 = 0;
+                                    int potValue2 = 0;
+                                    int potValue3 = 0;
+                                    int potValue4 = 0;
+                                    int potValue5 = 0;
+                                    int potValue6 = 0;
+                                    
+                                    int previousPotValue1 = 0;
+                                    int previousPotValue2 = 0;
+                                    int previousPotValue3 = 0;
+                                    int previousPotValue4 = 0;
+                                    int previousPotValue5 = 0;
+                                    int previousPotValue6 = 0;
+                                    
+                                    int pitchBendValue1 = 0;
+                                    int pitchBendValue2 = 0;
+                                    int pitchBendValue3 = 0;
+                                    int pitchBendValue4 = 0;
+                                    int pitchBendValue5 = 0;
+                                    int pitchBendValue6 = 0;
+                                    
+                                    //Potards de Reverb/delay
+                                    
+                                    const int potPin7 = A7;
+                                    const int potPin8 = A6;
+                                    
+                                    int potValue7 = 0;
+                                    int potValue8 = 0;
+                                    
+                                    int previousPotValue7 = 0;
+                                    int previousPotValue8 = 0;
+                                    
+                                    const int threshold3 = 2;
+                                    
+                                    const int threshold2 = 10;
+                                    
+                                    
+                                    const int threshold = 10;
+                                    
+                                    void setup() {
+                                    
+                                      MIDI.begin(MIDI_CHANNEL_OMNI);
+                                    
+                                      pinMode(ledPin1, OUTPUT);
+                                      pinMode(ledPin2, OUTPUT);
+                                      pinMode(ledPin3, OUTPUT);
+                                      pinMode(ledPin4, OUTPUT);
+                                      pinMode(ledPin5, OUTPUT);
+                                      pinMode(ledPin6, OUTPUT);
+                                    }
+                                    
+                                    void loop() {
+                                    
+                                      //BUTTON 1 - LED 1
+                                      if (digitalRead(11) == LOW) {
+                                        delay(10);
+                                        if (digitalRead(11) == LOW) {
+                                          buttonPressed1 = true;
+                                        }
+                                      } else {
+                                        if (buttonPressed1) {
+                                          static bool message2 = true;
+                                          if (message2) {
+                                            MIDI.sendNoteOn(50, 127, 1);   //valeur MIDI envoyé si bouton HIGH - Note 50 - canal 1
+                                            digitalWrite(ledPin1, HIGH);   // Allumer la LED
+                                          } else {
+                                            MIDI.sendNoteOn(51, 127, 1);   //valeur MIDI envoyé si bouton LOW - Note 51 - canal 1
+                                            digitalWrite(ledPin1, LOW);    // Éteindre la LED
+                                          }
+                                          message2 = !message2;            // basculer entre les deux messages
+                                          buttonPressed1 = false;
+                                        }
+                                      }
+                                    
+                                      //BUTTON 2 - LED 2
+                                      if (digitalRead(10) == LOW) {
+                                        delay(10);
+                                        if (digitalRead(10) == LOW) {
+                                          buttonPressed2 = true;
+                                        }
+                                      } else {
+                                        if (buttonPressed2) {
+                                          static bool message2 = true;
+                                          if (message2) {
+                                            MIDI.sendNoteOn(52, 127, 1);
+                                            digitalWrite(ledPin2, HIGH);
+                                          } else {
+                                            MIDI.sendNoteOn(53, 127, 1);
+                                            digitalWrite(ledPin2, LOW);
+                                          }
+                                          message2 = !message2;
+                                          buttonPressed2 = false;
+                                        }
+                                      }
+                                    
+                                      //BUTTON 3 - LED 3
+                                      if (digitalRead(9) == LOW) {
+                                        delay(10);
+                                        if (digitalRead(9) == LOW) {
+                                          buttonPressed3 = true;
+                                        }
+                                      } else {
+                                        if (buttonPressed3) {
+                                          static bool message2 = true;
+                                          if (message2) {
+                                            MIDI.sendNoteOn(54, 127, 1);
+                                            digitalWrite(ledPin3, HIGH);
+                                          } else {
+                                            MIDI.sendNoteOn(55, 127, 1);
+                                            digitalWrite(ledPin3, LOW);
+                                          }
+                                          message2 = !message2;
+                                          buttonPressed3 = false;
+                                        }
+                                      }
+                                    
+                                      //BUTTON 4 - LED 4
+                                      if (digitalRead(6) == LOW) {
+                                        delay(10);
+                                        if (digitalRead(6) == LOW) {
+                                          buttonPressed4 = true;
+                                        }
+                                      } else {
+                                        if (buttonPressed4) {
+                                          static bool message2 = true;
+                                          if (message2) {
+                                            MIDI.sendNoteOn(56, 127, 1);
+                                            digitalWrite(ledPin4, HIGH);
+                                          } else {
+                                            MIDI.sendNoteOn(57, 127, 1);
+                                            digitalWrite(ledPin4, LOW);
+                                          }
+                                          message2 = !message2;
+                                          buttonPressed4 = false;
+                                        }
+                                      }
+                                    
+                                      //BUTTON 5 - LED 5
+                                      if (digitalRead(5) == LOW) {
+                                        delay(10);
+                                        if (digitalRead(5) == LOW) {
+                                          buttonPressed5 = true;
+                                        }
+                                      } else {
+                                        if (buttonPressed5) {
+                                          static bool message2 = true;
+                                          if (message2) {
+                                            MIDI.sendNoteOn(58, 127, 1);
+                                            digitalWrite(ledPin5, HIGH);
+                                          } else {
+                                            MIDI.sendNoteOn(59, 127, 1);
+                                            digitalWrite(ledPin5, LOW);
+                                          }
+                                          message2 = !message2;
+                                          buttonPressed5 = false;
+                                        }
+                                      }
+                                    
+                                      //BUTTON 6 - LED 6
+                                      if (digitalRead(3) == LOW) {
+                                        delay(10);
+                                        if (digitalRead(3) == LOW) {
+                                          buttonPressed6 = true;
+                                        }
+                                      } else {
+                                        if (buttonPressed6) {
+                                          static bool message2 = true;
+                                          if (message2) {
+                                            MIDI.sendNoteOn(60, 127, 1);
+                                            digitalWrite(ledPin6, HIGH);
+                                          } else {
+                                            MIDI.sendNoteOn(61, 127, 1);
+                                            digitalWrite(ledPin6, LOW);
+                                          }
+                                          message2 = !message2;
+                                          buttonPressed6 = false;
+                                        }
+                                      }
+                                    
+                                      // PITCHBEND1 1
+                                      potValue1 = analogRead(potPin1);
+                                      if (abs(potValue1 - previousPotValue1) >= threshold) {     // Si différence entre valeur précédente et valeur actuelle < Threshold : = potard immobile.
+                                        pitchBendValue1 = map(potValue1, 0, 1023, -8192, 8191);  // mapping des données du potard sur l'echelle de pitch bend
+                                        MIDI.sendPitchBend(pitchBendValue1 + 0, 2);              // Envoi de la valeur de pitch bend sur le canal 2
+                                        previousPotValue1 = potValue1;
+                                      }
+                                      // PITCHBEND 2
+                                      potValue2 = analogRead(potPin2);
+                                      if (abs(potValue2 - previousPotValue2) >= threshold) {
+                                        pitchBendValue2 = map(potValue2, 0, 1023, -8192, 8191);
+                                        MIDI.sendPitchBend(pitchBendValue2 + 0, 3);
+                                        previousPotValue2 = potValue2;
+                                      }
+                                    
+                                      // PITCHBEND 3
+                                      potValue3 = analogRead(potPin3);
+                                      if (abs(potValue3 - previousPotValue3) >= threshold) {
+                                        pitchBendValue3 = map(potValue3, 0, 1023, -8192, 8191);
+                                        MIDI.sendPitchBend(pitchBendValue3 + 0, 4);
+                                        previousPotValue3 = potValue3;
+                                      }
+                                    
+                                      // PITCHBEND 4
+                                      potValue4 = analogRead(potPin4);
+                                      if (abs(potValue4 - previousPotValue4) >= threshold) {
+                                        pitchBendValue4 = map(potValue4, 0, 1023, -8192, 8191);
+                                        MIDI.sendPitchBend(pitchBendValue4 + 0, 5);
+                                        previousPotValue4 = potValue4;
+                                      }
+                                    
+                                      // PITCHBEND 5
+                                      potValue5 = analogRead(potPin5);
+                                      if (abs(potValue5 - previousPotValue5) >= threshold) {
+                                        pitchBendValue5 = map(potValue5, 0, 1023, -8192, 8191);
+                                        MIDI.sendPitchBend(pitchBendValue5 + 0, 6);
+                                        previousPotValue5 = potValue5;
+                                      }
+                                    
+                                      // PITCHBEND 6
+                                      potValue6 = analogRead(potPin6);
+                                      if (abs(potValue6 - previousPotValue6) >= threshold) {
+                                        pitchBendValue6 = map(potValue6, 0, 1023, -8192, 8191);
+                                        MIDI.sendPitchBend(pitchBendValue6 + 0, 7);
+                                        previousPotValue6 = potValue6;
+                                      }
+                                    
+                                    
+                                      //Potards de Reverb/delay
+                                    
+                                      //REVERB
+                                    
+                                      int potValue7 = analogRead(potPin7);
+                                      // Vérifie si la valeur du potentiomètre a changé de manière significative
+                                      if (abs(potValue7 - previousPotValue7) >= threshold) {
+                                        // Mappe la valeur du potentiomètre à la plage de valeurs MIDI CC
+                                        int ccValue = map(potValue7, 0, 1023, 0, 127);
+                                        // Envoie le message MIDI CC avec la valeur du potentiomètre
+                                        MIDI.sendControlChange(1, ccValue, 8);
+                                        // Met à jour la valeur précédente du potentiomètre
+                                        previousPotValue7 = potValue7;
+                                      }
+                                    
+                                      
+                                      //DELAY
+                                    
+                                      int potValue8 = analogRead(potPin8);
+                                      // Vérifie si la valeur du potentiomètre a changé de manière significative
+                                      if (abs(potValue8 - previousPotValue8) >= threshold) {
+                                        // Mappe la valeur du potentiomètre à la plage de valeurs MIDI CC
+                                        int ccValue = map(potValue8, 0, 1023, 0, 127);
+                                        // Envoie le message MIDI CC avec la valeur du potentiomètre
+                                        MIDI.sendControlChange(1, ccValue, 9);
+                                        // Met à jour la valeur précédente du potentiomètre
+                                        previousPotValue8 = potValue8;
+                                      }
+                                      }
+                            </code>
+                        </pre>
+                    </div>  
+                    <script>
+                        function copyCodeToClipboard() {
+                            var codeText = document.querySelector('.code-window code');
+                            var range = document.createRange();
+                            range.selectNode(codeText);
+                            window.getSelection().removeAllRanges();
+                            window.getSelection().addRange(range);
+                            document.execCommand("copy");
+                            window.getSelection().removeAllRanges();
+                        }
+                    </script>
+                    <br>
+                <h2>Les shémas de montage</h2>
+                <p>
+
+                </p>
+    </div> 
+
+        <br>
+
+    <div class="container" style="text-align: justify"> <!-- LE DRONE GENERATOR -->
+        <h1 align="center">Le Drone Générator</h1>
+            <p>
+            </p>
+            <br>
+    </div> 
+
+        <br>
+
+    <div class="container" style="text-align: justify">  <!-- LE MIKROFONE -->
+        <h1 align="center">Le MikroFone</h1>
+            <p>
+            </p>
+            <br>
+    </div>   
+</html>
