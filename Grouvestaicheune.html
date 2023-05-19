@@ -126,7 +126,7 @@
         margin: 0;
     }
     .code-copy-btn {
-        position: absolute;
+        position: sticky;
         top: 10px;
         right: 10px;
         background-color: #fff;
@@ -136,6 +136,7 @@
         font-family: Arial, sans-serif;
         font-size: 14px;
         cursor: pointer;
+        z-index: 1;
     }
     </style>
 </head>
@@ -226,7 +227,7 @@
             <br>
             <h2>Liste du materiel utilisé:</h2>
                 <p> 14 x potentiomètre linéaire 10k ohm <br>
-                    6 x boutton type arcade avec LED (5V)<br>
+                    6 x bouton type arcade avec LED (5V)<br>
                     20 x Connecteur jack femelle encastrable 6.3mm Mono<br>
                     1 x carte Arduino Mega (ou Elegoo mega)<br>
                     1 x embase femelle MIDI DIN <br>
@@ -248,7 +249,7 @@
 
                                     MIDI_CREATE_DEFAULT_INSTANCE();
                                     
-                                    //BOUTTON
+                                    //BOUTON
                                     const int button1 = 11;
                                     const int button2 = 10;
                                     const int button3 = 9;
@@ -575,17 +576,248 @@
 
     <div class="container" style="text-align: justify"> <!-- LE DRONE GENERATOR -->
         <h1 align="center">Le Drone Générator</h1>
-            <p>
+            <p> Contrairement à la Grouve Boxe qui est basée sur des rythmes plus percussifs, le Drone Générator permet lui de lancer et de moduler des nappes sonores. 
+                Il est divisé en 3 canaux qui comprennent chacun un bouton d'activation et un potentiomètre de modulation. Le Drone générator dispose également de deux effets master controlables par des potentiomètres.
+                Dans le drone générator il n'y a pas d'audio qui circule, c'est un controlleur MIDI "classique". Pour le dispositif Grouve Staïcheune, j'ai choisis d'assigner les trois canaux du Drone Générator à des bandes de fréquences : basse, médium, aigue.
+                Mais on peut completement changer les assignations de ce contrôlleur pour en faire autre chose.
             </p>
             <br>
+            <h2>Liste du materiel utilisé:</h2>
+            <p> 5 x potentiomètre linéaire 10k ohm <br>
+                3 x bouton type arcade avec LED (5V)<br>
+                1 x carte Arduino Uno (ou Elegoo)<br>
+                1 x embase femelle MIDI DIN <br>
+            </p>
+            <h2>Le code :</h2>
+                <p>Même procédé que pour la Grouve Boxe, avec l'IDE arduino on selectionne son port et son type de carte. A noter qu'il faut bien utiliser des ports MIDI différents de ceux utilisés sur la Grouve Boxe car sinon il pourrait y avoir des confusions entre les signaux à leurs arrivé dans le DAW.<br><br>
+                Le code que j'ai utilisé est le suivant :
+                    <br>
+                    <div class="code-window">
+                        <button class="code-copy-btn" onclick="copyCodeToClipboard()">Copier</button>
+                        <pre>
+                            <code>
+                                #include <MIDI.h> // bibliotheque midi à integrer
+
+                                    MIDI_CREATE_DEFAULT_INSTANCE(); 
+                                    
+                                    
+                                    //BOUTON
+                                    const int button1 = 9;  //la broche du boutton que vous voulez utiliser
+                                    const int button2 = 10;
+                                    const int button3 = 11;
+                                    
+                                    bool buttonState1 = LOW;    //definis les deux états possible de chaque boutons
+                                    bool buttonPressed1 = HIGH;
+                                    bool buttonState2 = LOW;
+                                    bool buttonPressed2 = HIGH;
+                                    bool buttonState3 = LOW;
+                                    bool buttonPressed3 = HIGH;
+                                    
+                                    
+                                    //LED
+                                    const int ledPin1 = 7;   // la broche de la LED que vous voulez utiliser
+                                    const int ledPin2 = 8;
+                                    const int ledPin3 = 12;
+                                    
+                                    bool ledState1 = LOW; // état initial de la LED
+                                    bool ledState2 = LOW;
+                                    bool ledState3 = LOW;
+                                    
+                                    
+                                    //POTARD
+                                    const int potPin1 = A5; // la broche des potards que vous voulez utiliser
+                                    const int potPin2 = A4;
+                                    const int potPin3 = A3;
+                                    
+                                    int potValue1 = 0; //constante initiales des potentiomètres
+                                    int potValue2 = 0;
+                                    int potValue3 = 0;
+                                    
+                                    int previousPotValue1 = 0; //constante initiales des potentiomètres
+                                    int previousPotValue2 = 0;
+                                    int previousPotValue3 = 0;
+                                    
+                                    int controlValue1 = 0; //valeurs de controle des potentiometres
+                                    int controlValue2 = 0;
+                                    int controlValue3 = 0;
+                                    
+                                    
+                                    //Potards d'effets
+                                    const int potPin4 = A0; //la broche des potards d'effets que vous voulez utiliser
+                                    const int potPin5 = A1;
+                                    
+                                    int potValue4 = 0;  //constante initiales des potentiomètres d'effets
+                                    int potValue5 = 0;
+                                    
+                                    int previousPotValue4 = 0; //constante initiales des potentiomètres d'effets
+                                    int previousPotValue5 = 0;
+                                    
+                                    const int threshold = 10; //temps en milliseconde entre chaque action 
+                                    
+                                    void setup() {
+                                    
+                                      MIDI.begin(MIDI_CHANNEL_OMNI); //ouverture des canaux MIDI
+                                    
+                                      pinMode(ledPin1, OUTPUT); //activation des leds
+                                      pinMode(ledPin2, OUTPUT);
+                                      pinMode(ledPin3, OUTPUT);
+                                    }
+                                    
+                                    void loop() {
+                                    
+                                      //BUTTON 1 - LED 1
+                                      if (digitalRead(button1) == LOW) {
+                                        delay(10);
+                                        if (digitalRead(button1) == LOW) {
+                                          buttonPressed1 = true;
+                                        }
+                                      } else {
+                                        if (buttonPressed1) {
+                                          static bool message2 = true;
+                                          if (message2) {
+                                            MIDI.sendNoteOn(50, 127, 10);   //valeur MIDI envoyé si bouton HIGH - Note 50 - canal 10
+                                            digitalWrite(ledPin1, HIGH);   // Allumer la LED
+                                          } else {
+                                            MIDI.sendNoteOn(51, 127, 10);   //valeur MIDI envoyé si bouton LOW - Note 51 - canal 10
+                                            digitalWrite(ledPin1, LOW);    // Éteindre la LED
+                                          }
+                                          message2 = !message2;            // basculer entre les deux messages
+                                          buttonPressed1 = false;
+                                        }
+                                      }
+                                    
+                                      //BUTTON 2 - LED 2
+                                      if (digitalRead(button2) == LOW) {
+                                        delay(10);
+                                        if (digitalRead(button2) == LOW) {
+                                          buttonPressed2 = true;
+                                        }
+                                      } else {
+                                        if (buttonPressed2) {
+                                          static bool message2 = true;
+                                          if (message2) {
+                                            MIDI.sendNoteOn(52, 127, 10);
+                                            digitalWrite(ledPin2, HIGH);
+                                          } else {
+                                            MIDI.sendNoteOn(53, 127, 10);
+                                            digitalWrite(ledPin2, LOW);
+                                          }
+                                          message2 = !message2;
+                                          buttonPressed2 = false;
+                                        }
+                                      }
+                                    
+                                      //BUTTON 3 - LED 3
+                                      if (digitalRead(button3) == LOW) {
+                                        delay(10);
+                                        if (digitalRead(button3) == LOW) {
+                                          buttonPressed3 = true;
+                                        }
+                                      } else {
+                                        if (buttonPressed3) {
+                                          static bool message2 = true;
+                                          if (message2) {
+                                            MIDI.sendNoteOn(54, 127, 10);
+                                            digitalWrite(ledPin3, HIGH);
+                                          } else {
+                                            MIDI.sendNoteOn(55, 127, 10);
+                                            digitalWrite(ledPin3, LOW);
+                                          }
+                                          message2 = !message2;
+                                          buttonPressed3 = false;
+                                        }
+                                      }
+                                    
+                                      // POTARDs
+                                      potValue1 = analogRead(potPin1);
+                                      if (abs(potValue1 - previousPotValue1) >= threshold) {     // Si différence entre valeur précédente et valeur actuelle < Threshold : = potard immobile.
+                                        controlValue1 = map(potValue1, 0, 1023, 0, 127);        // scale la valeur du potentiometre (initialement de 0 à 1023) de 0 à 127 (midi)
+                                        MIDI.sendControlChange(1, controlValue1, 11);           //envoie la valeur de controle sur le CC 1 du canal midi 11
+                                        previousPotValue1 = potValue1;
+                                      }
+                                    
+                                      potValue2 = analogRead(potPin2);
+                                      if (abs(potValue2 - previousPotValue2) >= threshold) {
+                                        controlValue2 = map(potValue2, 0, 1023, 0, 127);
+                                        MIDI.sendControlChange(2, controlValue2, 11);
+                                        previousPotValue2 = potValue2;
+                                      }
+                                    
+                                      potValue3 = analogRead(potPin3);
+                                      if (abs(potValue3 - previousPotValue3) >= threshold) {
+                                        controlValue3 = map(potValue3, 0, 1023, 0, 127);
+                                        MIDI.sendControlChange(3, controlValue3, 11);
+                                        previousPotValue3 = potValue3;
+                                      }
+                                    
+                                    
+                                      //Potards d'effets
+                                    
+                                      //REVERB
+                                      int potValue4 = analogRead(potPin4);
+                                      if (abs(potValue4 - previousPotValue4) >= threshold) {
+                                        int ccValue = map(potValue4, 0, 1023, 0, 127);
+                                        MIDI.sendControlChange(3, ccValue, 12);
+                                        previousPotValue4 = potValue4;
+                                      }
+                                    
+                                      //Saturation
+                                      int potValue5 = analogRead(potPin5);
+                                      if (abs(potValue5 - previousPotValue5) >= threshold) {
+                                        int ccValue = map(potValue5, 0, 1023, 0, 127);
+                                        MIDI.sendControlChange(4, ccValue, 12);
+                                        previousPotValue5 = potValue5;
+                                      }
+                                    }
+                                </code>
+                            </pre>
+                            <br>
+                    </div>
+            <h2>Les shémas de montage</h2>
     </div> 
 
         <br>
 
     <div class="container" style="text-align: justify">  <!-- LE MIKROFONE -->
         <h1 align="center">Le MikroFone</h1>
-            <p>
+            <p> Le MikroFone est un simple micro à electret, ici un Primo EM264Y Cardioid (<a href="https://micbooster.com/microphone-capsules/148-primo-em264y-cardioid-capsule.html" target="_blank">DataSheet</a>) 
+                monté dans un ancien micro de mégaphone. Un bouton sur le coté permet de l'activer. Les microphones à electrets necessitent une alimentation entre 3 et 5 volts, ce qui est problématique si l'on veut le brancher sur une carte son ne delivrant que du 48v.
+                Selon les electrets différents montages existent pour convertir le 48v en 5V, ici j'ai suivis le montage en photo qui est à la base pour un autre modèle d'electret mais le tout fonctionne bien. Dans la datasheet du primo, un shéma nous indique quel valeur de resistance utiliser.
+                Le montage vient se glissser à l'interieur même de la connectique XLR qui se branche sur la carte son. (Les connectiques Neutrik ont assez d'espace pour pouvoir le faire).
             </p>
+            <div class="image-container">
+                <a href="javascript:void(0);" onclick="showFullscreenImage('https://github.com/allinant-r/allinant-r/blob/main/IMAGES/MIKRO1.jpg?raw=true')" title="Le MikroFone">
+                    <img src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/MIKRO1.jpg?raw=true" alt="Le MikroFone">
+                </a>
+                <a href="javascript:void(0);" onclick="showFullscreenImage('https://github.com/allinant-r/allinant-r/blob/main/IMAGES/MIKRO3.jpg?raw=true')" title="Le MikroFone">
+                    <img src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/MIKRO3.jpg?raw=true" alt="Le MikroFone">
+                </a>
+                <a href="javascript:void(0);" onclick="showFullscreenImage('https://github.com/allinant-r/allinant-r/blob/main/IMAGES/MIKRO2.jpg?raw=true')" title="Le MikroFone">
+                    <img src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/MIKRO2.jpg?raw=true" alt="Le MikroFone">
+                </a>
+            </div>
             <br>
-    </div>   
+    </div>  
+
+    <br>
+
+    <div class="container" style="text-align: justify">  <!-- LA CARTE SON ET LE DAW --> 
+        <h1 align="center">La carte son & le DAW</h1>
+        <p>
+
+        </p>
+    </div>
+
+    <br>
+
+    <div class="container" style="text-align: justify">  <!-- ASTUCEs MIDI --> 
+        <h1 align="center">ASTUCES MIDI</h1>
+        <h2>Protokol :</h2>
+        <p> Protokol est un logiciel open source gratuit permettant de verifier les flux MIDI et OSC entrant sur une machine.
+            Il est très utile pour verifier si les montages sont bien fait et si les canaux MIDI sont bien assignés. On peut vite isoler les problèmes, et voir ou le montage et/ou le code pêche.
+            il n'y a rien a configurer, juste à l'ouvrir et à regarder si les données entrent de la bonne manière sur l'ordinateur. Attention certains dispositifs MIDI ne fonctionnent pas lorsque deux logiciels différents tentent de lire les informations qu'ils envoient ! Il faut alors soit utiliser Protokol pour contrôller,
+            soit utiliser directement le logiciel sur lequel on veut envoyer des informations MIDI.
+            Protokol est en libre téléchargement <a href="https://hexler.net/protokol" target="_blank">ici</a>
+        </p>
+    </div>
 </html>
