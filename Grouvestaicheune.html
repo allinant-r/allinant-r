@@ -225,14 +225,82 @@
                 </a>
             </div>
             <br>
+            <h2>Fonctionnement de la Grouve Box</h2>
+                <p> Sur la photo ci dessous les 5 différentes parties de la grouve box sont mis en evidence.<br></p>
+                  <div>
+                        <img width="50%"; src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/DIY/GLOBALgrouvebox.jpg?raw=true" alt="La Grouve Boxe">
+                    </a>
+                  </div>
+                  <p>
+                    Dans le rectangle Rouge on trouve le bouton qui lance et stop le sample, un potentiomètre controllant un effet de ce sample et la sortie Audio permettant de router le son du sample ou l'on souhaite.
+                    Il y a donc 6 circuits identiques pour chaque bouton. <br>
+                    <br>
+                    En Vert, c'est le mixer passif ; il ya deux mixers ayant trois canaux chacun sur la Grouve Box. Les entrées sont situées au dessus et la somme des signaux resortr dans l'unique sortie dans la partie inferieur du cadre vert.
+                    Les trois potentiomètres controlent respectivement le volume des signaux audio que l'on met dans chaque entrée du mixer.<br>
+                    <br>
+                    En noir c'est la section d'effet, la connectique supérieur est l'entré audio et la connectique inférieure la sortie. le potentiomètre quand à lui envoie une commande voulue à cet effet.
+                    Il y a deux sections d'effets sur la Grouve Box.<br>
+                    <br>
+                    En bleu, c'est l'entrée audio vers la carte son, si rien n'est envoyé dans cess deux entrées, aucuns sons ne sera émis. <br>
+                    <br>
+                    On decide du chemin du son en routant le signal à l'aide de cables jack. On peut ainsi decider si un son passe par un effet ou non, grouper des sons pour les envoyer dans le meme effet, faire des groupes ... 
+
+                </p>
             <h2>Liste du materiel utilisé:</h2>
-                <p> 14 x potentiomètre linéaire 10k ohm <br>
-                    6 x bouton type arcade avec LED (5V)<br>
-                    20 x Connecteur jack femelle encastrable 6.3mm Mono<br>
+                <p> 14 x potentiomètres linéaires 10k Ω <br>
+                    6 x boutons type "arcade" avec LED (5V)<br>
+                    20 x Connecteurs jack femelle encastrables 6.3mm Mono<br>
                     1 x carte Arduino Mega (ou Elegoo mega)<br>
                     1 x embase femelle MIDI DIN <br>
-                    2 x bornier electrique (possibilité de les "faire" soi-même)<br>
+                    2 x borniers electriques (possibilité de les "faire" soi-même)<br>
+                    6 x resistances de 10k Ω <br>
+                    6 x resistances de 220 Ω <br>
+                    12 x longueurs de cables audio, taille à définir pour aller jusqu'à la carte son.<br>
+                    12 x connectique jack 6.3mm mono (TS)<br>
                 </p>
+                <br>
+            <h2>Materiel nécéssaire:</h2>
+            <p> Fer à Souder<br>
+                Etain <br>
+                Gaine thermoformable <br>
+                Fils de cuivre<br>
+            </p>
+                <br>
+                <h2>Les shémas de montage :</h2>
+                <div class="image-container">
+                  <a href="javascript:void(0);" onclick="showFullscreenImage('https://github.com/allinant-r/allinant-r/blob/main/IMAGES/DIY/GrouveboxBouton1%20-%201.jpg?raw=true')" title="La Grouve Boxe">
+                      <img src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/DIY/GrouveboxBouton1%20-%201.jpg?raw=true" alt="La Grouve Boxe">
+                  </a>
+                  <a href="javascript:void(0);" onclick="showFullscreenImage('https://github.com/allinant-r/allinant-r/blob/main/IMAGES/DIY/Grouveboxpotard1.jpg?raw=true')" title="La Grouve Boxe">
+                      <img src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/DIY/Grouveboxpotard1.jpg?raw=true" alt="La Grouve Boxe">
+                  </a>
+                  <a href="javascript:void(0);" onclick="showFullscreenImage('https://github.com/allinant-r/allinant-r/blob/main/IMAGES/DIY/MixeurPassifMono.png?raw=true')" title="La Grouve Boxe">
+                      <img src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/DIY/MixeurPassifMono.png?raw=true" alt="La Grouve Boxe">
+                  </a>
+                  <a href="javascript:void(0);" onclick="showFullscreenImage('https://github.com/allinant-r/allinant-r/blob/main/IMAGES/DIY/GrouveboxMIDI.jpg?raw=true')" title="La Grouve Boxe">
+                    <img src="https://github.com/allinant-r/allinant-r/blob/main/IMAGES/DIY/GrouveboxMIDI.jpg?raw=true" alt="La Grouve Boxe">
+                </a>
+              </div>
+              <h2>Les boutons:</h2>
+                <p> En photo ci-dessus, l'exemple de montage du bouton 1. On a utilisé ici un bouton typer arcade avec une LED intégré. 
+                    Il faut bien faire attention de brancher le bouton sur une entrée PMW de la carte. Sur l'arduino mega les entrée 1 à 12 dispose du PWM, mais sur un arduino classique ces entré sont symbolisé par ( ~ ).
+                    La connection de la led sur la carte se fait elle par une entrée digitale. Les valeurs de resistances sont indiquées sur le shéma.<br>
+                    Les rectangles verts et bleus sur le shémas représentent respectivement les borniers GND et +5V. On branchera toutes nos masses et toutes nos alimentations sur ces borniers.
+                </p>
+                <h2>Les potentiomètres:</h2>
+                <p> Les potentiomètres connectent également leurs masses et leurs +5V sur les borniers. Il faut choisir une entrée Analogique sur la carte pour pouvoir lire la valeur du potentiomètre.
+                    Que ce soit pour les potentiomètres de controle de samples ou les potentiomètres de la section effet, le principe reste le même, on change evidement d'entré sur la carte arduino pour chaque potentiomètre.
+                </p>
+                <h2>La section mixer :</h2>
+                <p> Le Mixer est un circuit passif indépendant de l'arduino. Passif signifie qu'il n'est pas alimenté electriquement. Les masses sont uniquement connectées aux embases jack femelles du mixer.   
+                    Les deux mixer de la Grouve Box sont indépendant l'un de l'autre.           
+                </p>
+                <h2>La connection MIDI :</h2>
+                  <p> Sur les 5 broches de la connectique MIDI, on utilise seulement la 4, la 2 et la 5. J'ai personellement choisis de ne pas brancher la masse de la connectique midi à mon bornier, mais plutôt à une autre de l'arduino 
+                    car j'ai constaté une meilleure communication MIDI comme cela. 
+                    La connection MIDI se connecte à l'arduino via la broche TX->1.
+                  </p>
+                <h2>Les entrées/sorties :</h2>
                 <br>
                 <h2>Le code :</h2>
                 <p>Le code s'implémente via l'IDE Arduino disponible en téléchargement gratuit <a href="https://www.arduino.cc/en/software" target="_blank">ici</a> (Meme si vous utilisez une carte Elegoo).
@@ -566,10 +634,6 @@
                         }
                     </script>
                     <br>
-                <h2>Les shémas de montage</h2>
-                <p>
-
-                </p>
     </div> 
 
         <br>
@@ -582,12 +646,22 @@
                 Mais on peut completement changer les assignations de ce contrôlleur pour en faire autre chose.
             </p>
             <br>
-            <h2>Liste du materiel utilisé:</h2>
-            <p> 5 x potentiomètre linéaire 10k ohm <br>
-                3 x bouton type arcade avec LED (5V)<br>
+            <h2>Liste des composants utilisés:</h2>
+            <p> 5 x potentiomètres linéaires 10k Ω <br>
+                3 x boutons type "arcade" avec LED (5V)<br>
                 1 x carte Arduino Uno (ou Elegoo)<br>
                 1 x embase femelle MIDI DIN <br>
+                3 x resistances de 220 Ω<br>
+                3 x resistances de 10K Ω<br>
             </p>
+            <br>
+            <h2>Materiel nécéssaire:</h2>
+            <p> Fer à Souder<br>
+                Etain <br>
+                Gaine thermoformable <br>
+                Fils de cuivre<br>
+            </p>
+            <br>
             <h2>Le code :</h2>
                 <p>Même procédé que pour la Grouve Boxe, avec l'IDE arduino on selectionne son port et son type de carte. A noter qu'il faut bien utiliser des ports MIDI différents de ceux utilisés sur la Grouve Boxe car sinon il pourrait y avoir des confusions entre les signaux à leurs arrivé dans le DAW.<br><br>
                 Le code que j'ai utilisé est le suivant :
